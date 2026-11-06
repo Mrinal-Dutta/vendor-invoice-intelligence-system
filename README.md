@@ -72,14 +72,11 @@ Database: `inventory.db`
 
 Important features created for model training:
 
-- Invoice Quantity
-- Invoice Dollars
-- Freight
-- Total Item Quantity
-- Total Item Dollars
-- Total Brands
-- Days PO to Invoice
-- Average Receiving Delay
+- Invoice Quantity (`invoice_quantity`)
+- Invoice Dollars (`invoice_dollars`)
+- Freight (`Freight`)
+- Total Item Quantity (`total_item_quantity`)
+- Total Item Dollars (`total_item_dollars`)
 
 ---
 
