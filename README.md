@@ -93,6 +93,11 @@ Important features created for model training:
 1. Logistic Regression
 2. Decision Tree Classifier
 3. Random Forest Classifier
+**Final Saved Models:**
+
+- Freight Cost Prediction: `freight_model.pkl`
+- Invoice Risk Classification: `invoice_flagging_model.pkl`
+- Invoice Feature Scaling: `invoice_scaler.pkl`
 
 ---
 
