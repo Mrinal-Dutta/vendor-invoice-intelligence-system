@@ -231,3 +231,5 @@ elif selected_model == "Invoice Manual Approval Flag":
 
         except Exception as e:
             st.error(f"Prediction Error: {e}")
+            import traceback
+            st.code(traceback.format_exc())
