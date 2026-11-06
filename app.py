@@ -130,18 +130,19 @@ if selected_model == "Freight Cost Prediction":
 # MODULE 2: INVOICE RISK FLAGGING
 # ==================================================
 
+
 elif selected_model == "Invoice Manual Approval Flag":
 
     st.header("🛡️ Invoice Risk Flagging & Manual Review")
 
     st.write("""
-    Predict whether a vendor invoice requires manual approval
+    Predict whether a vendor invoice requires manual review
     based on invoice, freight and purchase patterns.
     """)
 
     with st.form("invoice_flag_form"):
 
-        col1, col2, col3 = st.columns(3)
+        col1, col2 = st.columns(2)
 
         with col1:
 
@@ -165,24 +166,10 @@ elif selected_model == "Invoice Manual Approval Flag":
 
         with col2:
 
-            total_brands = st.number_input(
-                "Total Brands",
-                min_value=0,
-                value=5
-            )
-
             total_item_quantity = st.number_input(
                 "Total Item Quantity",
                 min_value=1,
                 value=162
-            )
-
-        with col3:
-
-            days_po_to_invoice = st.number_input(
-                "Days PO to Invoice",
-                min_value=0,
-                value=10
             )
 
             total_item_dollars = st.number_input(
@@ -201,13 +188,12 @@ elif selected_model == "Invoice Manual Approval Flag":
             "invoice_quantity": [invoice_quantity],
             "invoice_dollars": [invoice_dollars],
             "Freight": [freight],
-            "total_brands": [total_brands],
             "total_item_quantity": [total_item_quantity],
-            "days_po_to_invoice": [days_po_to_invoice],
             "total_item_dollars": [total_item_dollars]
         }
 
         try:
+
             prediction = predict_invoice_flag(input_data)
 
             flag_prediction = prediction[
@@ -219,17 +205,17 @@ elif selected_model == "Invoice Manual Approval Flag":
             if int(flag_prediction) == 1:
 
                 st.error(
-                    "⚠️ Invoice requires Manual Approval "
-                    "(High Risk / Anomaly Detected)."
+                    "⚠️ Manual Review Recommended: "
+                    "Invoice Flag Detected."
                 )
 
             else:
 
                 st.success(
-                    "✅ Invoice is Safe for Auto-Approval."
+                    "✅ No Risk Flag Detected."
                 )
 
         except Exception as e:
+
             st.error(f"Prediction Error: {e}")
-            import traceback
-            st.code(traceback.format_exc())
+
