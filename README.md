@@ -157,3 +157,27 @@ Vendor-Invoice-Intelligence-System/
 ├── requirements.txt
 └── README.md
 ```
+
+---
+
+## 📊 Invoice Classification Model Performance
+
+The tuned Random Forest Classifier was evaluated on the test dataset.
+
+| Metric | Score |
+|---|---:|
+| Accuracy | 88.90% |
+| Precision | 95.80% |
+| Recall | 71.35% |
+| F1 Score | 81.79% |
+
+### Hyperparameter Tuning
+
+GridSearchCV was used with 5-fold cross-validation.
+
+Best Parameters:
+- n_estimators: 300
+- max_depth: None
+- min_samples_split: 5
+- min_samples_leaf: 1
+- criterion: gini
